@@ -1,6 +1,7 @@
 # GuillotineJS
 
 - [GuillotineJS](#guillotine)
+  - [Live demo](#live-demo)
   - [Installation](#installation)
   - [Controls](#controls)
   - [Caveats](#caveats)
@@ -19,6 +20,10 @@ See also [Guillotine](https://github.com/rberenguel/Guillotine) for a cross-plat
 ---
 
 _GuillotineJS_ shares the core ideas of _Guillotine_, but with simpler code. It uses the drag controls from my [generative sketches GUI helper](https://mostlymaths.net/2020/05/blot-painting-p5js-sketch.html/#the-gui), and since it lives in one window, doesn't need as much code.
+
+## Live demo
+
+You can try it with [this reveal.js presentation](https://mostlymaths.net/commoditisation-languages/commoditisation.html#/commoditisation-and-programming-languages). Press `Ctrl-Alt-V` to show the selection modal (see [controls](#controls)).
 
 ## Installation
 
