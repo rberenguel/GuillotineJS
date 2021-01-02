@@ -27,12 +27,12 @@ _GuillotineJS_ shares the core ideas of _Guillotine_, but with simpler code. It 
 To use _GuillotineJS_ as a bookmarklet in _a_ website you need to use either Firefox or Chrome, since you need a browser where you can disable Content Security Policy. This is potentially risky, so be sure you only deactivate it temporarily.
 
 - In Firefox, you need to disable `security.csp.enable` in the `about:config` menu. This is a global setting, so it is recommended to install a version of Firefox with this setting. 
-- In Chrome, you should install an extension that lets you disable CSP (I have tried [this one](https://chrome.google.com/webstore/detail/disable-content-security/ieelmcmcagommplceebfedjlakkhpden?hl=en))
+- In Chrome, you should install an extension that lets you disable CSP (I have tried [this one](https://chrome.google.com/webstore/detail/disable-content-security/ieelmcmcagommplceebfedjlakkhpden?hl=en)). Sometimes it seems to have issues applying the setting to a website, and a hard reload _seems_ to help. Check the Javascript console for CSP errors when pressing the bookmarklet to see if it is working or not.
 
 Once you have any of these, you can add these bookmarklets:
 
-- `Guillotine`: `javascript:(function(){document.body.appendChild(document.createElement('script')).src='https://github.com/rberenguel/guillotinejs/raw/master/src/guillotine.js';})();)` After disabling CSP, press the bookmarklet.
-- `Guillotine in Google Slides`: `javascript:(function(){document.querySelector(".punch-present-iframe").contentDocument.body.appendChild(document.createElement('script')).src='https://github.com/rberenguel/guillotinejs/raw/master/src/guillotine.js';})();)` To use it in Google Slides, activate `Present mode`, and move your mouse up so your `Bookmarks` menu shows, then click this bookmarklet.
+- `GuillotineJS`: `javascript:(function(){document.body.appendChild(document.createElement('script')).src='https://cdn.jsdelivr.net/gh/rberenguel/guillotinejs/src/guillotine.js';})();` After disabling CSP, press the bookmarklet.
+- `GuillotineJS for Google Slides`: `javascript:(function(){document.querySelector(".punch-present-iframe").contentDocument.body.appendChild(document.createElement('script')).src='https://cdn.jsdelivr.net/gh/rberenguel/guillotinejs/src/guillotine.js';})();` To use it in Google Slides, activate `Present mode`, and move your mouse up so your `Bookmarks` menu shows, then click this bookmarklet.
 
 The quickest way to create a bookmarklet from this code is to create a bookmark to this page and edit its destination with the code above in the link field.
 
@@ -54,6 +54,7 @@ Click on the cutoff frame to give it keyboard focus, then
 
 ## Caveats
 
+* Some websites _really_ take control of your keyboard, and mess with _GuillotineJS_ access to its trigger key. This happens for instance in twitter. You can add `?init` to the URL of `guillotine.js` to trigger the modal without the keyboard shortcut.
 * Currently the keyboard controls do not work in the Google Slides version, since Google Slides in present mode works in an iFrame, keypresses are captured in a different scope. I need to think how to best address this.
 * There are some usability improvements to add to the keyboard controls, as well as adding some kind of help.
 * The code needs a good cleanup, there are many repeated and non-configurable constants.

@@ -351,6 +351,11 @@ const GuillotineJS = () => {
     });
     configureDrag("#guillotine-cover");
   };
+
+  if(document.currentScript.src.endsWith("init")){
+    console.log("Initialising GuillotineJS modal directly")
+    init();
+  }
 }
 
 GuillotineJS()
