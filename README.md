@@ -29,16 +29,12 @@ To use _GuillotineJS_ as a bookmarklet in _a_ website you need to use either Fir
 - In Firefox, you need to disable `security.csp.enable` in the `about:config` menu. This is a global setting, so it is recommended to install a version of Firefox with this setting. 
 - In Chrome, you should install an extension that lets you disable CSP (I have tried [this one](https://chrome.google.com/webstore/detail/disable-content-security/ieelmcmcagommplceebfedjlakkhpden?hl=en))
 
-Once you have any of these, you can add these two links to your bookmarks:
+Once you have any of these, you can add these bookmarklets:
 
-- [Guillotine](javascript:(function(){document.body.appendChild(document.createElement('script')).src='https://github.com/rberenguel/guillotinejs/raw/master/src/guillotine.js';})();) After disabling CSP, press the bookmarklet.
-- [Guillotine in Google Slides](javascript:(function(){document.querySelector(".punch-present-iframe").contentDocument.body.appendChild(document.createElement('script')).src='https://github.com/rberenguel/guillotinejs/raw/master/src/guillotine.js';})();) To use it in Google Slides, activate `Present mode`, and move your mouse up so your `Bookmarks` menu shows, then click this bookmarklet.
+- `Guillotine`: `javascript:(function(){document.body.appendChild(document.createElement('script')).src='https://github.com/rberenguel/guillotinejs/raw/master/src/guillotine.js';})();)` After disabling CSP, press the bookmarklet.
+- `Guillotine in Google Slides`: `javascript:(function(){document.querySelector(".punch-present-iframe").contentDocument.body.appendChild(document.createElement('script')).src='https://github.com/rberenguel/guillotinejs/raw/master/src/guillotine.js';})();)` To use it in Google Slides, activate `Present mode`, and move your mouse up so your `Bookmarks` menu shows, then click this bookmarklet.
 
-In code, they respectively are:
-- `javascript:(function(){document.body.appendChild(document.createElement('script')).src='https://github.com/rberenguel/guillotinejs/raw/master/src/guillotine.js';})();`
-- `javascript:(function(){document.querySelector(".punch-present-iframe").contentDocument.body.appendChild(document.createElement('script')).src='https://github.com/rberenguel/guillotinejs/raw/master/src/guillotine.js';})();`
-
-Drag-and-dropping them from this `README` to your bookmarks bar should work. Otherwise, create a bookmark to this page, edit it and add the code above to the link field.
+The quickest way to create a bookmarklet from this code is to create a bookmark to this page and edit its destination with the code above in the link field.
 
 #### For self-hosted presentations
 
