@@ -47,7 +47,7 @@ For instance, presentations created with [reveal.js](https://revealjs.com), mayb
 
 ## Controls
 
-After loading it (either as an import or via the bookmarklet), press `Ctrl-Alt-V` to get a modal view of your camera (you can choose which camera if there are more than one, although on Mac OS this does not work in Safari). 
+After loading it (either as an import or via the bookmarklet), press `Ctrl-Shift-V`<sup>1</sup> to get a modal view of your camera (you can choose which camera if there are more than one, although on Mac OS this does not work in Safari). 
 
 Click on the cutoff frame to give it keyboard focus, then
 - Scroll wheel in the frame to resize it (larger or smaller),
@@ -56,6 +56,8 @@ Click on the cutoff frame to give it keyboard focus, then
 - `S`/`R` to make the frame `S`quarer or `R`ounder,
 - `Space` to create the floating element with the currently focused area
 - All controls except `space` work after creating the element, so you can resize the frame, move it around or reshape it.
+
+1: Turns out Chrome in MacOS converts `alt+v` into, well, what `alt+v` is, namely `√`, making the capture to fail unless I want to add explicit key codes. Likewise, `Ctrl-Shift-v` is processed as `Ctrl-V`, but this is at least easy to handle and cross-platform.
 
 ## Caveats
 

@@ -1,5 +1,7 @@
 const GuillotineJS = () => {
 
+  let generated = false;
+
   const centerCutoff = () => {
     coverElement.style.top = 0 + "px"
     coverElement.style.left = 0 + "px"
@@ -7,7 +9,9 @@ const GuillotineJS = () => {
   }
 
   document.onkeydown = (e) => {
-    if (e.key == "v" && e.ctrlKey && e.altKey && !generated) {
+    console.log("Fucking key down", e)
+    if (e.key.toLowerCase() == "v" && e.ctrlKey && e.shiftKey && !generated) {
+      console.log("FUUU")
       init();
       e.preventDefault();
     }
@@ -40,15 +44,13 @@ const GuillotineJS = () => {
   videoWrapperElement.appendChild(videoElement)
   videoWrapperElement.appendChild(videoSelectorElement)
 
-  const modalElement = document.createElement("div") //document.querySelector("#guillotine-modal")
+  const modalElement = document.createElement("div")
 
   modalElement.id = "guillotine-modal"
-  modalElement.style = "left: 0px; right: 0px; position: absolute; border: 2px solid black; border-radius: 5px; height: 630px; width: 810px; background:rgba(0, 0, 0, 0.5); z-index: 5000;"
+  modalElement.style = "left: 0px; top: 0px; position: absolute; border: 2px solid black; border-radius: 5px; height: 630px; width: 810px; background:rgba(0, 0, 0, 0.5); z-index: 5000; visibility: hidden;"
 
   modalElement.appendChild(videoWrapperElement)
   document.body.appendChild(modalElement)
-
-  let generated = false;
 
   let coverTransform = {
     x: 0,
@@ -344,6 +346,7 @@ const GuillotineJS = () => {
     navigator.mediaDevices.enumerateDevices().then(gotDevices).then(getStream());
     modalElement.style.top = (window.innerHeight - 600) / 2 + "px";
     modalElement.style.left = (window.innerWidth - 800) / 2 + "px";
+    modalElement.style.visibility = "visible";
     centerCover();
     coverElement.addEventListener("wheel", (e) => {
       coverScale(e);
