@@ -2,16 +2,14 @@ const GuillotineJS = () => {
 
   let generated = false;
 
-  const centerCutoff = () => {
-    coverElement.style.top = 0 + "px"
-    coverElement.style.left = 0 + "px"
-    coverElement.style.position = "absolute"
+  const centerCutoff = (x, y) => {
+    coverElement.style.top = y + "px"
+    coverElement.style.left = x + "px"
+    coverElement.style.position = "fixed"
   }
 
   document.onkeydown = (e) => {
-    console.log("Fucking key down", e)
     if (e.key.toLowerCase() == "v" && e.ctrlKey && e.shiftKey && !generated) {
-      console.log("FUUU")
       init();
       e.preventDefault();
     }
@@ -47,7 +45,7 @@ const GuillotineJS = () => {
   const modalElement = document.createElement("div")
 
   modalElement.id = "guillotine-modal"
-  modalElement.style = "left: 0px; top: 0px; position: absolute; border: 2px solid black; border-radius: 5px; height: 630px; width: 810px; background:rgba(0, 0, 0, 0.5); z-index: 5000; visibility: hidden;"
+  modalElement.style = "left: 0px; top: 0px; position: fixed; border: 2px solid black; border-radius: 5px; height: 630px; width: 810px; background:rgba(0, 0, 0, 0.5); z-index: 5000; visibility: hidden;"
 
   modalElement.appendChild(videoWrapperElement)
   document.body.appendChild(modalElement)
@@ -61,7 +59,6 @@ const GuillotineJS = () => {
   };
 
   const transformElement = (element, transform, scaleFirst) => {
-    console.log(transform)
     let str = ""
     if (scaleFirst) {
       str += ` scale(${transform.scale})`
@@ -100,8 +97,9 @@ const GuillotineJS = () => {
       e.preventDefault();
     });
     document.body.appendChild(coverElement)
+    rect = modalElement.getBoundingClientRect();
     modalElement.remove()
-    centerCutoff()
+    centerCutoff(rect.x, rect.y)
     generated = true;
   }
 
@@ -134,8 +132,6 @@ const GuillotineJS = () => {
       video: video
     };
 
-    console.log("Requesting ", constraints)
-
     navigator.mediaDevices
       .getUserMedia(constraints)
       .then(gotStream)
@@ -154,7 +150,6 @@ const GuillotineJS = () => {
   const configureDrag = (elementQ) => {
     let container = document.querySelector(elementQ)
     let rect = container.getBoundingClientRect();
-    console.log("drafleft:", rect)
     let active = false
     let currentX, currentY, initialX, initialY;
     let xOffset = coverTransform.x,
@@ -279,12 +274,10 @@ const GuillotineJS = () => {
   }
 
   const centerCover = () => {
-    console.log(coverTransform);
     const left = 800 / 2 - 100;
     const top = 600 / 2 - 100;
     coverTransform.x = left;
     coverTransform.y = top;
-    console.log(coverTransform);
     transformElement(coverElement, coverTransform);
   };
 
