@@ -57,7 +57,11 @@ Click on the cutoff frame to give it keyboard focus, then
 - `Space` to create the floating element with the currently focused area
 - All controls except `space` work after creating the element, so you can resize the frame, move it around or reshape it.
 
+You can also use `?` to get help.
+
 1: Turns out Chrome in MacOS converts `alt+v` into, well, what `alt+v` is, namely `√`, making the capture to fail unless I want to add explicit key codes. Likewise, `Ctrl-Shift-v` is processed as `Ctrl-V`, but this is at least easy to handle and cross-platform.
+
+The font used is [Monoid](https://larsenwork.com/monoid/), inlined via base64 in the Javascript file. An interesting trick I learnt for [Glancer](https://github.com/rberenguel/glancer).
 
 ## Caveats
 
