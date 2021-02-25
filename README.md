@@ -23,7 +23,7 @@ _GuillotineJS_ shares the core ideas of _Guillotine_, but with simpler code. It 
 
 ## Live demo
 
-You can try it with [this reveal.js presentation](https://mostlymaths.net/commoditisation-languages/commoditisation.html#/commoditisation-and-programming-languages). Press `Ctrl-Alt-V` to show the selection modal (see [controls](#controls)).
+You can try it with [this reveal.js presentation](https://mostlymaths.net/commoditisation-languages/commoditisation.html#/commoditisation-and-programming-languages). Press `Ctrl-Shift-V` to show the selection modal (see [controls](#controls)).
 
 ## Installation
 
